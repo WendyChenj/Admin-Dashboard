@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles'; 
-import { Drawer, Typography, List, ListItem, ListItemIcon, ListItemText, Divider, Collapse } from '@material-ui/core';
+import { Drawer, Typography, List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import GroupIcon from '@material-ui/icons/Group';

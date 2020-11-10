@@ -1,0 +1,35 @@
+{
+    "salesGroupData": [
+        {
+            "id": "1",
+            "teamLead": "Wendy Chen",
+            "city": "Ottawa",
+            "targetAchieve": 97
+        },
+        {
+            "id": "2",
+            "teamLead": "Derek Morgan",
+            "city": "Toronto",
+            "targetAchieve": 72
+        },
+        {
+            "id": "3",
+            "teamLead": "Aaron Hotchner",
+            "city": "Montreal",
+            "targetAchieve": 88
+        },
+        {
+            "id": "4",
+            "teamLead": "Jennifer Jareau",
+            "city": "Quebec",
+            "targetAchieve": 92
+        },
+        {
+            "id": "5",
+            "teamLead": "Spencer Reid",
+            "city": "London",
+            "targetAchieve": 80
+        }
+    ],
+    "dueDate": "Dec 6th"
+}
