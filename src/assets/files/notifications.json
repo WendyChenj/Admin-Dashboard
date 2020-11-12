@@ -1,0 +1,25 @@
+[
+    {   
+        "title": "Wendy invites you to visit her personal website", 
+        "type": "portfolio",
+        "website": "https://www.hiwendychen.com/",
+        "intro": "Wendy Chen is a extremely passionate and dedicated front end developer with 1+ year of experience building UI & UX using React & Redux. Also, she has a solid background in SQL and Python and am familiar with Azure Enviroment as well."
+    }, 
+    {
+        "title": "Wendy invites you to see her work on Github",
+        "type": "github",
+        "website": "https://github.com/WendyChenj",
+        "intro": "Wendy Chen has a strong willingness to stay in tune with the lastest technologies. She is eager to skill in web architecture and work on different aspects of application development."
+    }, 
+    {
+        "title": "Wendy invites you to connect with her on Linkedin",
+        "type": "linkedin",
+        "website": "https://www.linkedin.com/in/wenjie-wendy-chen/",
+        "intro": "Let's be friends! Wendy loves communicating with people and exchanging thoughts on web development. It is a good way to increase knowledge and keep innovative."
+    }, 
+    {
+        "title": "Wendy invites you to contact her or make suggestions through Email",
+        "type": "email",
+        "website": "wendychen9395@gmail.com",
+        "intro": "If you have amazing projects on hand, do not hesitate to contact Wendy. Her skillsets and work ethic won't let you regret to hire her!"
+    }]

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { lighten, makeStyles } from '@material-ui/core/styles';
 import { TableContainer, Table, Typography, TableHead, TableRow, TableCell, TableBody, Button, TextField, IconButton, Checkbox } from '@material-ui/core';
 import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles( theme => ({
     root: {
@@ -30,7 +31,18 @@ const useStyles = makeStyles( theme => ({
         alignItems: 'center'
     },
     cell: {
-        padding: theme.spacing(2, 4),
+        display: 'flex',
+        flexFlow: 'row noWrap',
+        alignItems: 'center',
+    },
+    selectedCell: {
+        display: 'flex',
+        flexFlow: 'row noWrap',
+        alignItems: 'center',
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(2),
+        justifyContent: 'space-between'
     }
 })); 
 
@@ -39,9 +51,9 @@ const Assignments = () => {
     const classes = useStyles();
 
     const [ taskAdded, setTaskAdded ] = useState(false);
-    const [ task, setTask ] = useState(["Meet with group #2"]);
+    const [ task, setTask ] = useState(["Visit Wendy's portfolio", "Contact with Wendy Chen", "Have an interview with Wendy Chen 😃"]);
     const [ newTask, setNewTask ] = useState("");
-    const [ checked, setChecked ] = useState(false);
+    const [ selected, setSelected ] = useState([]);
 
     const addTaskHandler = () => {
         setTaskAdded(true);
@@ -62,15 +74,45 @@ const Assignments = () => {
         setTaskAdded(false);
     }
 
-    // const checkedHandler = event => {
-    //     setChecked(event.target.checked);
-    // }
+    // selected list
+    const selectedHandler = (event, name) => {
+        event.preventDefault();
+        const selectedIndex = selected.indexOf(name);
+        let newSelected = [];
+
+        if (selectedIndex === -1) {
+            newSelected = newSelected.concat(selected, name);
+        } else if (selectedIndex === 0) {
+            newSelected = newSelected.concat(selected.slice(1));
+        } else if (selectedIndex === selected.length - 1) {
+            newSelected = newSelected.concat(selected.slice(0, -1));
+        } else if (selectedIndex > 0) {
+            newSelected = newSelected.concat(
+              selected.slice(0, selectedIndex),
+              selected.slice(selectedIndex + 1),
+            );
+        }
+
+        setSelected(newSelected);
+    }
+
+    // determine if this row has been selected
+    const isSelected = (name) => selected.indexOf(name) !== -1;
+
+    const removeItemHandler = (event) => {
+        event.preventDefault();
+        let newTaskList = [];
+
+        newTaskList = task.filter(ele => selected.indexOf(ele) === -1);
+        setTask(newTaskList);
+        setSelected([]);
+    }
 
     const taskList = task.map( ele => (
-        <TableRow key={ele}>
-            <TableCell className={classes.cell}>
-                <div style={{display: 'flex', flexDirection: 'row npWrap'}}>
-                    <Checkbox checked={false} color='secondary' />
+        <TableRow key={ele} onClick={event => selectedHandler(event, ele)}>
+            <TableCell>
+                <div className={classes.cell}>
+                    <Checkbox color='secondary' checked={isSelected(ele)} />
                     {ele}
                 </div>
             </TableCell>
@@ -105,7 +147,22 @@ const Assignments = () => {
                 </TableHead>
 
                 <TableBody>
-                    {taskList}
+                    {selected.length > 0 ? 
+                        (<TableRow>
+                            <TableCell className={classes.selectedCell}>
+                                <Typography>
+                                    {selected.length} rows selected
+                                </Typography>
+                                <IconButton onClick={removeItemHandler}>
+                                    <DeleteIcon />
+                                </IconButton>
+                            </TableCell>
+                        </TableRow>)
+                        : null
+                    }
+                    {task.length === 0 ? 
+                        <Typography style={{ paddingTop: '12px' }}>Please add a new task</Typography>
+                        : taskList}
                 </TableBody>
             </Table>
         </TableContainer>

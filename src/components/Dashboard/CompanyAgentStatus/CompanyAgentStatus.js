@@ -6,7 +6,7 @@ import { Typography, Paper, Divider, TableContainer, Table, TableHead, TableRow,
 const useStyles = makeStyles(theme => ({
     root: {
         width: 'auto',
-        height: '410px',
+        height: '500px',
         margin: theme.spacing(4, 5),
         color: '#424242',
     },
@@ -96,7 +96,7 @@ const CompanyAgentStatus = () => {
                             </TableCell>
                             <TableCell className={classes.bodyCell}>{salesGroupData.dueDate}</TableCell>
                             <TableCell className={classes.bodyCell}>
-                                <Button variant='contained' color='primary'>DETAILS</Button>
+                                <Button variant='contained' disabled>DETAILS</Button>
                             </TableCell>
                         </TableRow>
                     ))}
