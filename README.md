@@ -10,19 +10,19 @@ This dashboard is only supported by laptop or desktop as the responsive design i
 
 ### Data Analysis
 
-<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-data.png" width="350">
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-data.png" width="450">
 
 ### Sales Group Performance
 
-<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-sales-performance.png" width="350">
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-sales-performance.png" width="450">
 
 ### Tasks List & Timeline
 
-<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-assignments.png" width="350">
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-assignments.png" width="450">
 
 ### Notifications
 
-<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-notifications.png" width="350">
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-notifications.png" width="450">
 
 ### Change Status  
 
