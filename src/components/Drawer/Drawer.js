@@ -45,7 +45,6 @@ const Item = props => {
 }
 
 const SideDrawer = () => {
-
     const classes = useStyles();
 
     const [open, setOpen] = useState(true);
