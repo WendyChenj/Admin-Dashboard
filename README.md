@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# ADMIN PAGE DASHBOARD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The dashboard allows users to check the sales performance of products and track the progress of team members. Users also could add new tasks and delete tasks that have been done. Moreover, there is a monthly timeline to remind users big event and the date when big event happens. Users could edit the date and event according to their own schedule. 
 
-## Available Scripts
+This project was built using React Hook, Redux, react-router, D3.js and Material-UI.
 
-In the project directory, you can run:
+### DEMO
 
-### `npm start`
+This dashboard is only supported by laptop or desktop as the responsive design is still under development.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Data Analysis
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-data.png" width="350">
 
-### `npm test`
+### Sales Group Performance
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-sales-performance.png" width="350">
 
-### `npm run build`
+### Tasks List & Timeline
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-assignments.png" width="350">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Notifications
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-notifications.png" width="350">
 
-### `npm run eject`
+### Change Status  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![alt-test](https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-status.gif)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Update Tasks List
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![alt-test](https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-tasks-list.gif)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Update Tasks List
 
-## Learn More
+![alt-test](https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-timeline.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -8,6 +8,7 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import CategoryIcon from '@material-ui/icons/Category';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     menu: {
@@ -44,7 +45,6 @@ const Item = props => {
 }
 
 const SideDrawer = () => {
-
     const classes = useStyles();
 
     const [open, setOpen] = useState(true);
@@ -58,7 +58,7 @@ const SideDrawer = () => {
             <div className={classes.menu}>
                 <List>
                     <TitleListItem name='ADMINISTRATION' />
-
+                     
                     <ListItem button onClick={clickOpenHandler}>
                         <ListItemIcon>
                             <DashboardIcon />
@@ -67,12 +67,14 @@ const SideDrawer = () => {
                         {open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={open} timeout='auto' unmountOnExit>
-                        <ListItem button className={classes.nested}>
-                            <ListItemIcon>
-                                <AssessmentIcon />
-                            </ListItemIcon>
-                            <ListItemText primary='Analytics' />
-                        </ListItem>
+                            <NavLink to='/analytics' activeStyle={{color: '#1a237e', textDecoration: 'none'}}>
+                                <ListItem button className={classes.nested}>
+                                    <ListItemIcon>
+                                        <AssessmentIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary='Analytics' />
+                                </ListItem>
+                            </NavLink>
                     </Collapse>
 
                     <Item name='Users Management'>
