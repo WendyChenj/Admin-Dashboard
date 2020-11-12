@@ -1,0 +1,29 @@
+{
+    "timelineSchedule": [
+        {
+            "id": "1",
+            "date": "Dec. 5th",
+            "event": "Meet with sales group representative"
+        },
+        {
+            "id": "2",
+            "date": "Dec. 12th",
+            "event": "Release new product"
+        },
+        {
+            "id": "3",
+            "date": "Dec. 19th",
+            "event": "Write year-end summary report"
+        },
+        {
+            "id": "4",
+            "date": "Dec. 23th",
+            "event": "Attend Christmas party"
+        },
+        {
+            "id": "5",
+            "date": "Dec. 29th",
+            "event": "Prepare for the next year"
+        }
+    ]
+}

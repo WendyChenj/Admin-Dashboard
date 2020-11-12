@@ -1,29 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import { Typography, Grid, Card, CardContent, Divider } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Assignments from './Assignments/Assignments';
 import TimelinePlan from './TimelinePlan/TimelinePlan';
 
 const useStyle = makeStyles(theme => ({
     root: {
         margin: theme.spacing(5),
-    },
-    // iPhoneBG: {
-    //     border: '2px solid #ef5350',
-    //     borderBottom: '5px solid #ef5350'
-    // },
-    // iPadBG: {
-    //     border: '2px solid #26a69a',
-    //     borderBottom: '5px solid #26a69a'
-    // },
-    // MacBG: {
-    //     border: '2px solid #ffa726',
-    //     borderBottom: '5px solid #ffa726'
-    // },
-    // title: {
-    //     padding: theme.spacing(2),
-    //     color: '#424242'
-    // }
+    }
 }));
 
 const TimeManagement = () => {

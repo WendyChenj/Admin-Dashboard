@@ -1,9 +1,13 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles'; 
-import { AppBar, Toolbar, Typography, InputBase, Avatar, IconButton, Badge } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles'; 
+import { AppBar, Toolbar, Typography, Avatar, IconButton, Badge, Backdrop } from '@material-ui/core';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import StatusPopover from './StatusPopover/StatusPopover';
+import notifications from '../../assets/files/notifications.json';
+import { OnlineStyledBadge, OfflineStyledBadge, MeetingStyledBadge } from './StyledBadge/StyledBadge';
+import NotificationsCard from './NotificationsCard/NotificationsCard';
 
 const useStyles= makeStyles((theme) => ({
     root: {
@@ -42,50 +46,105 @@ const useStyles= makeStyles((theme) => ({
         margin: theme.spacing(0, 2, 0, 1.5),
         width: '40px',
         height: '40px',
+    },
+    badgeContent: {
+        color: '#ffab00',
+        backgroundColor: 'white',
+        fontSize: '1rem',
+        borderRadius: '14px'
     }
 }));
 
-const StyledBadge = withStyles((theme) => ({
-    badge: {
-        backgroundColor: '#44b700',
-        width: '12px',
-        height: '12px',
-        borderRadius: '12px',
-        border: '1px solid white',
-    }
-}))(Badge);
-
 const Navbar = () => {
     const classes = useStyles();
+
+    const [ anchorEl, setAnchorEl ] = useState();
+    const [ status, setStatus ] = useState('ONLINE');
+    const [ checkNotifications, setCheckNotifications ] = useState(false);
+
+    useEffect(() => {
+        console.log(checkNotifications);
+    });
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+
+    const statusChangeHandler = (event, status) => {
+        event.preventDefault();
+        setStatus(status);
+        setAnchorEl(null);
+    }
+
+    const openNotificationsHandler = () => {
+        setCheckNotifications(!checkNotifications);
+    }
+
+    const closeNotificationHandler = () => {
+        setCheckNotifications(false);
+    }
+
+    const StatusBadge = (status) => {
+        switch (status) {
+            case 'ONLINE': 
+                return (
+                    <OnlineStyledBadge overlap="circle" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} variant="dot" className={classes.dot}>
+                        <Avatar>W</Avatar>
+                    </OnlineStyledBadge>
+                );
+            case 'OFFLINE': 
+                return (
+                    <OfflineStyledBadge overlap="circle" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} variant="dot" className={classes.dot}>
+                        <Avatar>W</Avatar>
+                    </OfflineStyledBadge>
+                );
+            case 'MEETING': 
+                return (
+                    <MeetingStyledBadge overlap="circle" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} variant="dot" className={classes.dot}>
+                        <Avatar>W</Avatar>
+                    </MeetingStyledBadge>
+                );
+            case 'AWAY': 
+                return (
+                    <Badge overlap="circle" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} badgeContent={<RemoveCircleIcon className={classes.badgeContent} style={{ fontSize: 12 }} />}>
+                        <Avatar>W</Avatar>
+                    </Badge>
+                );
+            default: 
+                break;
+        }
+    }
 
     return (
         <AppBar position='fixed' className={classes.root}>
             <Toolbar className={classes.toolbar}>
                 <Typography variant='h5' className={classes.title}>DashBoard</Typography>
-                <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                        <SearchIcon color='disabled' />
-                    </div>
-                    <InputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-                </div>
                 <div className={classes.section}>
                     <IconButton color="inherit">
-                        <Badge badgeContent={4} color='secondary'>
+                        <Badge color='secondary'>
                             <MailIcon/>
                         </Badge>
                     </IconButton>
-                    <IconButton aria-label="show 17 new notifications" color="inherit">
-                        <Badge badgeContent={17} color="secondary">
+                    <IconButton color="inherit" onClick={openNotificationsHandler}>
+                        <Badge badgeContent={4} color="secondary">
                             <NotificationsIcon />
+                            <Backdrop open={checkNotifications} onClick={closeNotificationHandler}>
+                                <NotificationsCard notifications={notifications}/>
+                            </Backdrop>
                         </Badge>
                     </IconButton>
-                    <IconButton className={classes.avatarButton}>
-                        <StyledBadge overlap="circle" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} variant="dot" className={classes.dot}>
-                            <Avatar>W</Avatar>
-                        </StyledBadge>
+                    <IconButton className={classes.avatarButton} aria-describedby={id} onClick={handleClick}>
+                        {StatusBadge(status)}
                     </IconButton>
-                </div>
-                
+                    <StatusPopover id={id} open={open} anchorEl={anchorEl} handleClose={handleClose} statusChange={statusChangeHandler} />
+                </div>        
             </Toolbar>
         </AppBar>
     );
