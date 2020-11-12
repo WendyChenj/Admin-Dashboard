@@ -67,7 +67,7 @@ const SideDrawer = () => {
                         {open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={open} timeout='auto' unmountOnExit>
-                            <NavLink to='/analytics' activeStyle={{color: '#1a237e', textDecoration: 'none'}}>
+                            <NavLink to='/' activeStyle={{color: '#1a237e', textDecoration: 'none'}}>
                                 <ListItem button className={classes.nested}>
                                     <ListItemIcon>
                                         <AssessmentIcon />

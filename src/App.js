@@ -21,7 +21,7 @@ function App() {
        <SideDrawer />
   
         <Switch>
-          <Route path='/analytics'>
+          <Route path='/'>
             <Dashboard />
           </Route>
         </Switch>
