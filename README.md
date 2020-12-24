@@ -37,4 +37,5 @@ This dashboard is only supported by laptop or desktop as the responsive design i
 
 ![alt-test](https://github.com/WendyChenj/Admin-Dashboard/blob/test/dashboard-timeline.gif)
 
+@ Happy Coding - WENDY
 
